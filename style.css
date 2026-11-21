@@ -1,0 +1,479 @@
+
+/* =========================
+   GENERAL SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #333;
+    padding: 20px;
+}
+
+/* =========================
+   DASHBOARD LAYOUT
+========================= */
+
+.dashboard {
+    max-width: 1000px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+/* =========================
+   CARD DESIGN
+========================= */
+
+.card {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+    color: #333;
+}
+
+/* =========================
+   GREETING
+========================= */
+
+.greeting {
+    grid-column: span 2;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+.greeting h1 {
+    font-size: 25px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+#greeting {
+    color: #6c63d9;
+}
+
+#clock {
+    font-size: 48px;
+    color: #7776cc;
+    margin-bottom: 8px;
+}
+
+#date {
+    color: #777;
+    margin-bottom: 12px;
+}
+
+#welcome {
+    color: #555;
+}
+
+/* =========================
+   FOCUS TIMER
+========================= */
+
+.timer {
+    text-align: center;
+}
+
+#timer {
+    font-size: 55px;
+    font-weight: bold;
+    color: #7066d8;
+    margin: 25px 0;
+}
+
+.timer-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* =========================
+   BUTTON DESIGN
+========================= */
+
+button {
+    border: none;
+    padding: 11px 17px;
+    border-radius: 8px;
+    background: #7167d9;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+button:hover {
+    background: #554bb8;
+}
+
+/* =========================
+   INPUT DESIGN
+========================= */
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    min-width: 0;
+}
+
+input:focus {
+    border-color: #7167d9;
+}
+
+.task-input,
+.link-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* =========================
+   TASK LIST
+========================= */
+
+#taskList {
+    list-style: none;
+    margin-top: 18px;
+}
+
+#taskList li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    overflow-wrap: anywhere;
+}
+
+#taskList li span {
+    flex: 1;
+    min-width: 0;
+}
+
+#taskList li button {
+    padding: 8px 10px;
+    font-size: 12px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* =========================
+   QUICK LINKS
+========================= */
+
+#linkList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+#linkList a {
+    display: inline-block;
+    background: #7167d9;
+    color: white;
+    padding: 11px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+#linkList a:hover {
+    background: #554bb8;
+}
+
+/* =========================
+   DARK MODE CLASS
+========================= */
+
+body.dark-mode {
+    background: #171727;
+    color: #eee;
+}
+
+body.dark-mode .card {
+    background: #28283b;
+    color: #eee;
+}
+
+body.dark-mode .card h2,
+body.dark-mode .greeting h1 {
+    color: #eee;
+}
+
+body.dark-mode input {
+    background: #38384c;
+    color: white;
+    border-color: #555;
+}
+
+body.dark-mode #taskList li {
+    border-color: #444;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media screen and (max-width: 768px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+        margin: 12px auto;
+        gap: 14px;
+    }
+
+    .greeting {
+        grid-column: span 1;
+        padding: 25px 12px;
+    }
+
+    .greeting h1 {
+        font-size: 21px;
+    }
+
+    #clock {
+        font-size: 40px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card h2 {
+        font-size: 18px;
+    }
+
+    #timer {
+        font-size: 48px;
+    }
+
+    button {
+        min-height: 42px;
+    }
+}
+
+
+/* =========================
+   FIX MOBILE TO-DO LIST
+========================= */
+
+#taskList {
+    width: 100%;
+    padding: 0;
+}
+
+#taskList li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    padding: 14px 4px;
+}
+
+#taskList li input[type="checkbox"] {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    margin: 0;
+}
+
+#taskList li span {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    font-size: 14px;
+}
+
+#taskList li button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 9px 12px;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 480px) {
+    #taskList li {
+        gap: 7px;
+    }
+
+    #taskList li button {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+}
+
+
+/* =========================
+   QUICK LINKS IMPROVEMENT
+========================= */
+
+#linkList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.quick-link-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+    background: #f4f0ff;
+    border-radius: 10px;
+    min-width: 0;
+}
+
+.quick-link-item a {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: #6255c7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.quick-link-item button {
+    flex-shrink: 0;
+    background: #dc5555;
+}
+
+.quick-link-item button:hover {
+    background: #b83b3b;
+}
+
+body.dark-mode .quick-link-item {
+    background: #38384c;
+}
+
+body.dark-mode .quick-link-item a {
+    color: #b9b1ff;
+}
+
+
+/* =========================
+   LIGHT / DARK MODE BUTTON
+========================= */
+
+#themeToggle {
+    margin-top: 18px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    background: #7167d9;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+#themeToggle:hover {
+    background: #554bb8;
+}
+
+/* Dark Mode Text */
+body.dark-mode {
+    background: linear-gradient(
+        135deg,
+        #171727,
+        #292044
+    );
+    color: #eee;
+}
+
+body.dark-mode .greeting,
+body.dark-mode .timer,
+body.dark-mode .tasks,
+body.dark-mode .links {
+    background: #28283b;
+    color: #eee;
+}
+
+body.dark-mode #greeting,
+body.dark-mode .card h2 {
+    color: #eee;
+}
+
+body.dark-mode #clock {
+    color: #b9b1ff;
+}
+
+body.dark-mode #date,
+body.dark-mode #welcome {
+    color: #ccc;
+}
+
+
+/* =========================
+   CUSTOM NAME
+========================= */
+
+.custom-name {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    margin: 18px auto 0;
+}
+
+.custom-name input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.custom-name button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+body.dark-mode .custom-name input {
+    background: #38384c;
+    color: white;
+    border-color: #555;
+}
+
+@media screen and (max-width: 480px) {
+    .custom-name {
+        width: 100%;
+    }
+}
